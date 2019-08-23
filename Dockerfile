@@ -16,7 +16,8 @@ RUN useradd -m -s /bin/bash -N -u $NB_UID $NB_USER \
 
 RUN apt-get -y update &&   \
     apt-get install --no-install-recommends -y \
-    git
+    git \
+    wget
     
 RUN apt-get purge -y --auto-remove \
     &&  apt-get clean \
