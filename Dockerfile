@@ -1,5 +1,6 @@
-FROM continuumio/miniconda
+FROM ubuntu:16.04
 MAINTAINER reach4avik@yahoo.com
+LABEL maintainer="avikdatta"
 
 ENTRYPOINT []
 
@@ -26,8 +27,12 @@ WORKDIR /home/$NB_USER
 
 RUN mkdir -p /home/$NB_USER/tmp
 COPY environment.yaml /home/$NB_USER/environment.yaml
-
+RUN  wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+     bash Miniconda3-latest-Linux-x86_64.sh -b
+ENV PATH $PATH:/home/$NB_USER/miniconda3/bin/
 RUN conda env create -q --file  /home/$NB_USER/environment.yaml
+RUN echo ". /home/$NB_USER/miniconda3/etc/profile.d/conda.sh" >> ~/.bashrc && \
+    echo "conda activate pipeline-env" >> ~/.bashrc
 RUN rm -rf /home/$NB_USER/tmp
 RUN mkdir -p /home/$NB_USER/tmp
 CMD [ "/bin/bash" ]
