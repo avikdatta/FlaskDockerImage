@@ -4,6 +4,8 @@ MAINTAINER reach4avik@yahoo.com
 ENTRYPOINT []
 
 ENV NB_USER vmuser
+ENV NB_GROUP vmuser
+ENV NB_UID 1000
 USER root
 WORKDIR /root/
 
