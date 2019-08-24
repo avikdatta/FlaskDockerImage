@@ -28,7 +28,7 @@ WORKDIR /home/$NB_USER
 
 RUN mkdir -p /home/$NB_USER/tmp
 COPY environment.yaml /home/$NB_USER/environment.yaml
-RUN  wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
+RUN  wget --no-check-certificate https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
      bash Miniconda3-latest-Linux-x86_64.sh -b
 ENV PATH $PATH:/home/$NB_USER/miniconda3/bin/
 RUN conda env create -q --file  /home/$NB_USER/environment.yaml
