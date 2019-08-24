@@ -33,7 +33,7 @@ RUN  wget --no-check-certificate https://repo.continuum.io/miniconda/Miniconda3-
 ENV PATH $PATH:/home/$NB_USER/miniconda3/bin/
 RUN conda env create -q --file  /home/$NB_USER/environment.yaml
 RUN echo ". /home/$NB_USER/miniconda3/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate pipeline-env" >> ~/.bashrc
+    echo "conda activate flask" >> ~/.bashrc
 RUN rm -rf /home/$NB_USER/tmp
 RUN mkdir -p /home/$NB_USER/tmp
 CMD [ "/bin/bash" ]
