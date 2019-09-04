@@ -36,4 +36,6 @@ RUN echo ". /home/$NB_USER/miniconda3/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate flask" >> ~/.bashrc
 RUN rm -rf /home/$NB_USER/tmp
 RUN mkdir -p /home/$NB_USER/tmp
+ENV LC_ALL C.UTF-8
+ENV LANG C.UTF-8
 CMD [ "/bin/bash" ]
