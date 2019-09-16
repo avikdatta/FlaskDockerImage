@@ -59,4 +59,4 @@ dependencies:
     - webencodings==0.5.1
     - Werkzeug==0.15.5
     - WTForms==2.1
-    - flask-appbuilder
+  
